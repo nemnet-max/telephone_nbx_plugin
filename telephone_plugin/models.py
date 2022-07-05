@@ -34,13 +34,13 @@ class VoiceCircuit(ChangeLoggedModel):
         choices=VoiceCircuitTypeChoices,
         blank=False
     )
-#    pbx = models.ForeignKey(
-#        to='telephone_plugin.PBX',
-#        on_delete=models.SET_NULL,
-#        blank=True,
-#        null=True,
-#        related_name = "vc_pbx_set"
-#    )
+    pbx = models.ForeignKey(
+        to='telephone_plugin.PBX',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name = "vc_pbx_set"
+    )
     provider = models.ForeignKey(
         to="circuits.Provider",
         on_delete=models.SET_NULL,
@@ -135,6 +135,7 @@ class PBX(ChangeLoggedModel):
         choices=PBXTypeChoices,
         blank=False
     )
+    is_virtual = models.BooleanField()
     region = models.ForeignKey(
         to="dcim.Region",
         on_delete=models.SET_NULL,

@@ -44,7 +44,7 @@ class VoiceCircuitTable(BaseTable):
         orderable=False,
         verbose_name='Device/VM'
     )
-#    pbx        = tables.LinkColumn()
+    pbx        = tables.LinkColumn()
     voice_circuit_type = tables.LinkColumn()
     tenant             = tables.LinkColumn()
     region             = tables.LinkColumn()
@@ -70,6 +70,7 @@ class PBXTable(BaseTable):
     region             = tables.LinkColumn()
     site               = tables.LinkColumn()
     pbx_type           = tables.LinkColumn()
+    is_virtual         = tables.LinkColumn()
     domain             = tables.LinkColumn()
     protocol           = tables.LinkColumn()
     port               = tables.LinkColumn()
@@ -78,5 +79,5 @@ class PBXTable(BaseTable):
 
     class Meta(BaseTable.Meta):
         model  = PBX
-        fields = ('pk', 'name', 'voice_device_or_vm', 'region', 'site', 'pbx_type')
+        fields = ('pk', 'name', 'voice_device_or_vm', 'region', 'site', 'pbx_type', 'is_virtual')
 #        fields = ('pk', 'name', 'region', 'site', 'pbx_type')

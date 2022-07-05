@@ -70,7 +70,7 @@ class NumberEditForm(forms.ModelForm):
 
     class Meta:
         model = Number
-        fields = ('number', 'fio', 'pbx', 'tenant', 'provider', 'region', 'site', 'device', 'is_record', 'access_cat', 'forward_to', 'comment')
+        fields = ('number', 'fio', 'pbx', 'is_virtual', 'tenant', 'provider', 'region', 'site', 'device', 'is_record', 'access_cat', 'forward_to', 'comment')
 
 class NumberBulkEditForm(AddRemoveTagsForm, BulkEditForm):
 
@@ -341,10 +341,6 @@ class PBXEditForm(forms.ModelForm):
     name = forms.CharField(
         required=True,
     )
-#    voice_circuit_type = forms.ChoiceField(
-#        choices=PBXTypeChoices,
-#        widget=forms.Select(attrs={"onChange": 'ShowPBXTypeRelatedDetails();'})
-#    )
     device = DynamicModelChoiceField(
         queryset=Device.objects.all(),
         required=False,

@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=64)),
                 ('description', models.CharField(blank=True, max_length=200)),
-#                ('pbx', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='vc_pbx_set', to='telephone_plugin.pbx')),
+                ('pbx', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='vc_pbx_set', to='telephone_plugin.pbx')),
                 ('voice_circuit_type', models.CharField(max_length=50)),
                 ('provider_circuit_id', models.CharField(blank=True, max_length=50)),
                 ('sip_source', models.CharField(blank=True, max_length=200)),

@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Number',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False)),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False)),
                 ('created', models.DateField(auto_now_add=True, null=True)),
                 ('last_updated', models.DateTimeField(auto_now=True, null=True)),
                 ('number', models.CharField(max_length=32, validators=[django.core.validators.RegexValidator('^\\+?[0-9A-D\\#\\*]*$', 'Numbers can only contain: leading +, digits 0-9; chars A, B, C, D; # and *')])),

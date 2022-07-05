@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=64)),
                 ('description', models.CharField(blank=True, null=True, max_length=200)),
                 ('pbx_type', models.CharField(max_length=50)),
+                ('is_virtual', models.BooleanField()),
                 ('domain', models.CharField(blank=True, null=True, max_length=200)),
                 ('protocol', models.CharField(blank=True, null=True,max_length=50)),
                 ('port', models.PositiveIntegerField(blank=True, null=True)),
