@@ -135,7 +135,8 @@ class PBX(ChangeLoggedModel):
         choices=PBXTypeChoices,
         blank=False
     )
-    is_virtual = models.BooleanField()
+    is_virtual = models.BooleanField(
+    )
     region = models.ForeignKey(
         to="dcim.Region",
         on_delete=models.SET_NULL,
@@ -240,7 +241,7 @@ class Number(ChangeLoggedModel):
         null=True,
         related_query_name='tennantgroup'
     )
-    tenant.group = models.ForeignKey(
+    tenantgroup = models.ForeignKey(
         to='tenancy.TenantGroup',
         on_delete=models.CASCADE,
         blank=True,
@@ -317,7 +318,4 @@ class Number(ChangeLoggedModel):
         return reverse("plugins:telephone_plugin:number_view", kwargs={"pk": self.pk})
 
     class Meta:
-        ordering = ['tenant.group', 'tenant']
-        unique_together = [
-            ['manufacturer', 'model']
-        ]
+        ordering = ['tenantgroup', 'tenant']

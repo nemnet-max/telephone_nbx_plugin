@@ -3,7 +3,8 @@ from utilities.forms import (
     BootstrapMixin, DynamicModelMultipleChoiceField, DynamicModelChoiceField,
     TagFilterField, BulkEditForm, CSVModelForm, CSVModelChoiceField
 )
-from tenancy.models import Tenant
+from tenancy.forms import TenancyForm
+from tenancy.models import Tenant, TenantGroup
 from dcim.models import Region, Site, Device, Interface
 from virtualization.models import VirtualMachine, VMInterface
 from circuits.models import Provider
@@ -50,7 +51,7 @@ class NumberFilterForm(forms.Form):
     tag = TagFilterField(model)
 
 
-class NumberEditForm(forms.ModelForm):
+class NumberEditForm(TenancyForm,forms.ModelForm):
 
     number = forms.CharField(
         required=True,
@@ -63,14 +64,39 @@ class NumberEditForm(forms.ModelForm):
             }
         )
     )
+#    tenantgroup = DynamicModelChoiceField(
+#        queryset=TenantGroup.objects.all(),
+#        to_field_name='id',
+#        required=False,
+#        null_option='None',
+#    )
+    tenant = DynamicModelChoiceField(
+        queryset=Tenant.objects.all(),
+        to_field_name='id',
+        required=False,
+        null_option='None',
+        initial_params={
+            'tennantgroup': '$tenantgroup'
+        }
+    )
+    device = DynamicModelChoiceField(
+        queryset=Device.objects.all(),
+        required=False,
+        initial_params={
+            'interfaces': '$interface'
+        }
+    )
     tags = DynamicModelMultipleChoiceField(
         queryset=Tag.objects.all(),
         required=False
     )
+    fieldsets = (
+        ('Tenancy', ('tenant_group', 'tenant')),
+    )
 
     class Meta:
         model = Number
-        fields = ('number', 'fio', 'pbx', 'is_virtual', 'tenant', 'provider', 'region', 'site', 'device', 'is_record', 'access_cat', 'forward_to', 'comment')
+        fields = ('number', 'fio', 'pbx', 'tenantgroup', 'tenant', 'provider', 'region', 'site', 'device', 'is_record', 'access_cat', 'forward_to', 'comment')
 
 class NumberBulkEditForm(AddRemoveTagsForm, BulkEditForm):
 
@@ -381,7 +407,7 @@ class PBXEditForm(forms.ModelForm):
     class Meta:
         model = PBX
         fields = (
-            'name', 'pbx_type', 'tenant', 'region', 'site',
+            'name', 'is_virtual', 'pbx_type', 'tenant', 'region', 'site',
             'description', 'domain', 'protocol', 'port', 'tags',
             'sip_proxy1', 'sip_proxy2'
         )

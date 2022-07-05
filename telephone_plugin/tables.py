@@ -19,6 +19,7 @@ class NumberTable(BaseTable):
     fio        = tables.LinkColumn()
     pbx        = tables.LinkColumn()
     tenant     = tables.LinkColumn()
+    tenantgroup= tables.LinkColumn()
     region     = tables.LinkColumn()
     site       = tables.LinkColumn()
     provider   = tables.LinkColumn()
@@ -30,7 +31,7 @@ class NumberTable(BaseTable):
 
     class Meta(BaseTable.Meta):
         model  = Number
-        fields = ('pk', 'number', 'fio', 'pbx', 'tenant', 'region', 'site', 'provider', 'device', 'is_record', 'access_cat', 'forward_to', 'comment')
+        fields = ('pk', 'number', 'fio', 'pbx', 'tenant', 'tenantgroup', 'region', 'site', 'provider', 'device', 'is_record', 'access_cat', 'forward_to')
 #        fields = ('pk', 'number', 'fio', 'tenant', 'region', 'site', 'provider', 'device', 'is_record', 'access_cat', 'forward_to', 'comment')
 
 
@@ -44,7 +45,7 @@ class VoiceCircuitTable(BaseTable):
         orderable=False,
         verbose_name='Device/VM'
     )
-    pbx        = tables.LinkColumn()
+    pbx                = tables.LinkColumn()
     voice_circuit_type = tables.LinkColumn()
     tenant             = tables.LinkColumn()
     region             = tables.LinkColumn()

@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('device', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='num_device_set', to='dcim.device')),
                 ('region', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='num_region_set', to='dcim.region')),
                 ('site', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='num_site_set', to='dcim.site')),
-                ('tenant_group', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='tenancy.tenantgroup')),
+                ('tenantgroup', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='tenancy.tenantgroup')),
                 ('tenant', models.ForeignKey(blank=True, null=True,on_delete=django.db.models.deletion.CASCADE, to='tenancy.tenant')),
                 ('tags', taggit.managers.TaggableManager(through='extras.TaggedItem', to='extras.Tag')),
                 ('forward_to', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='num_forward_to_set', to='telephone_plugin.number')),
@@ -45,7 +45,6 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(blank=True, null=True, max_length=200)),
             ],
             options={
-                'unique_together': {('manufacturer', 'model')},
                 'abstract': False,
             },
         ),
