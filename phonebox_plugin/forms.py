@@ -207,7 +207,7 @@ class VoiceCircuitEditForm(forms.ModelForm):
     )
 
     class Media:
-        js = ('telephone_plugin/js/edit_virtual_circuit.js',)
+        js = ('phonebox_plugin/js/edit_virtual_circuit.js',)
 
     class Meta:
         model = VoiceCircuit
@@ -402,7 +402,7 @@ class PBXEditForm(forms.ModelForm):
     )
 
     class Media:
-        js = ('telephone_plugin/js/edit_PBX.js',)
+        js = ('phonebox_plugin/js/edit_PBX.js',)
 
     class Meta:
         model = PBX

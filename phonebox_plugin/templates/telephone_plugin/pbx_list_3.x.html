@@ -8,13 +8,13 @@
 {% block controls %}
 
 <div class="pull-right noprint">
-	{% if perms.telephone_plugin.pbx_add %}
-	  <a href="{% url 'plugins:telephone_plugin:pbx_add' %}" type="button" class="btn btn-sm btn-success">
+	{% if perms.phonebox_plugin.pbx_add %}
+	  <a href="{% url 'plugins:phonebox_plugin:pbx_add' %}" type="button" class="btn btn-sm btn-success">
 		<i class="mdi mdi-plus-thick"></i> Add
 	  </a>
 	{% endif %}
-	{% if perms.telephone_plugin.pbx_import %}
-	  <a href="{% url 'plugins:telephone_plugin:pbx_import' %}" type="button" class="btn btn-sm btn-info">
+	{% if perms.phonebox_plugin.pbx_import %}
+	  <a href="{% url 'plugins:phonebox_plugin:pbx_import' %}" type="button" class="btn btn-sm btn-info">
 		<i class="mdi mdi-upload"></i> Import
 	  </a>
     {% endif %}
@@ -50,7 +50,7 @@
 		<h2>{% block title %}PBX{% endblock %}</h2>
 		<div class="row">
 			<div class="col-md-12">
-				{% include 'telephone_plugin/obj_table.html' with bulk_delete_url="plugins:telephone_plugin:pbx_bulk_delete" bulk_edit_url="plugins:telephone_plugin:pbx_bulk_edit" %}
+				{% include 'phonebox_plugin/obj_table.html' with bulk_delete_url="plugins:phonebox_plugin:pbx_bulk_delete" bulk_edit_url="plugins:phonebox_plugin:pbx_bulk_edit" %}
 			</div>
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-# Telephone Netbox Plugin
+# PhoneBox Plugin
 
 A Telephone Number Management Plugin for [NetBox](https://github.com/netbox-community/netbox) and more.
 

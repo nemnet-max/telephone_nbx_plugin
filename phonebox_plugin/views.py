@@ -18,18 +18,18 @@ class NumberListView(generic.ObjectListView):
     filterset_form = forms.NumberFilterForm
     table = tables.NumberTable
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/number_list_3.x.html"
+        template_name = "phonebox_plugin/number_list_3.x.html"
     else:
-        template_name = "telephone_plugin/number_list.html"
+        template_name = "phonebox_plugin/number_list.html"
 
 
 class NumberView(generic.ObjectView):
     queryset = Number.objects.prefetch_related('tenant')
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/number_3.x.html"
+        template_name = "phonebox_plugin/number_3.x.html"
     else:
-        template_name = "telephone_plugin/number_3.x.html"
-#        template_name = "telephone_plugin/number.html"
+        template_name = "phonebox_plugin/number_3.x.html"
+#        template_name = "phonebox_plugin/number.html"
 
 
 class NumberEditView(generic.ObjectEditView):
@@ -41,10 +41,10 @@ class NumberEditView(generic.ObjectEditView):
         model_form = forms.NumberEditForm
 
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/number_add_3.x.html"
+        template_name = "phonebox_plugin/number_add_3.x.html"
     else:
-        template_name = "telephone_plugin/number_add_3.x.html"
-#        template_name = "telephone_plugin/number_add.html"
+        template_name = "phonebox_plugin/number_add_3.x.html"
+#        template_name = "phonebox_plugin/number_add.html"
 
 
 class NumberBulkEditView(generic.BulkEditView):
@@ -56,14 +56,14 @@ class NumberBulkEditView(generic.BulkEditView):
 
 class NumberDeleteView(generic.ObjectDeleteView):
     queryset = Number.objects.all()
-    default_return_url = "plugins:telephone_plugin:number_list"
+    default_return_url = "plugins:phonebox_plugin:number_list"
 
 
 class NumberBulkDeleteView(generic.BulkDeleteView):
     queryset = Number.objects.filter()
     filterset = filters.NumberFilterSet
     table = tables.NumberTable
-    default_return_url = "plugins:telephone_plugin:number_list"
+    default_return_url = "plugins:phonebox_plugin:number_list"
 
 
 class NumberBulkImportView(generic.BulkImportView):
@@ -78,17 +78,17 @@ class VoiceCircuitListView(generic.ObjectListView):
     filterset_form = forms.VoiceCircuitFilterForm
     table = tables.VoiceCircuitTable
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/voice_circuit_list_3.x.html"
+        template_name = "phonebox_plugin/voice_circuit_list_3.x.html"
     else:
-        template_name = "telephone_plugin/voice_circuit_list.html"
+        template_name = "phonebox_plugin/voice_circuit_list.html"
 
 
 class VoiceCircuitView(generic.ObjectView):
     queryset = VoiceCircuit.objects.prefetch_related('tenant')
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/voice_circuit_3.x.html"
+        template_name = "phonebox_plugin/voice_circuit_3.x.html"
     else:
-        template_name = "telephone_plugin/voice_circuit.html"
+        template_name = "phonebox_plugin/voice_circuit.html"
 
 
 class VoiceCircuitEditView(generic.ObjectEditView):
@@ -100,9 +100,9 @@ class VoiceCircuitEditView(generic.ObjectEditView):
         model_form = forms.VoiceCircuitEditForm
 
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/voice_circuit_add_3.x.html"
+        template_name = "phonebox_plugin/voice_circuit_add_3.x.html"
     else:
-        template_name = "telephone_plugin/voice_circuit_add.html"
+        template_name = "phonebox_plugin/voice_circuit_add.html"
 
 
 class VoiceCircuitBulkEditView(generic.BulkEditView):
@@ -114,14 +114,14 @@ class VoiceCircuitBulkEditView(generic.BulkEditView):
 
 class VoiceCircuitDeleteView(generic.ObjectDeleteView):
     queryset = VoiceCircuit.objects.all()
-    default_return_url = "plugins:telephone_plugin:voice_circuit_list"
+    default_return_url = "plugins:phonebox_plugin:voice_circuit_list"
 
 
 class VoiceCircuitBulkDeleteView(generic.BulkDeleteView):
     queryset = VoiceCircuit.objects.filter()
     filterset = filters.VoiceCircuitFilterSet
     table = tables.VoiceCircuitTable
-    default_return_url = "plugins:telephone_plugin:voice_circuit_list"
+    default_return_url = "plugins:phonebox_plugin:voice_circuit_list"
 
 
 class VoiceCircuitBulkImportView(generic.BulkImportView):
@@ -136,17 +136,17 @@ class PBXListView(generic.ObjectListView):
     filterset_form = forms.PBXFilterForm
     table = tables.PBXTable
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/pbx_list_3.x.html"
+        template_name = "phonebox_plugin/pbx_list_3.x.html"
     else:
-        template_name = "telephone_plugin/pbx_list.html"
+        template_name = "phonebox_plugin/pbx_list.html"
 
 
 class PBXView(generic.ObjectView):
     queryset = PBX.objects.prefetch_related('tenant')
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/pbx_3.x.html"
+        template_name = "phonebox_plugin/pbx_3.x.html"
     else:
-        template_name = "telephone_plugin/pbx.html"
+        template_name = "phonebox_plugin/pbx.html"
 
 
 class PBXEditView(generic.ObjectEditView):
@@ -158,9 +158,9 @@ class PBXEditView(generic.ObjectEditView):
         model_form = forms.PBXEditForm
 
     if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "telephone_plugin/pbx_add_3.x.html"
+        template_name = "phonebox_plugin/pbx_add_3.x.html"
     else:
-        template_name = "telephone_plugin/pbx_add.html"
+        template_name = "phonebox_plugin/pbx_add.html"
 
 
 class PBXBulkEditView(generic.BulkEditView):
@@ -172,14 +172,14 @@ class PBXBulkEditView(generic.BulkEditView):
 
 class PBXDeleteView(generic.ObjectDeleteView):
     queryset = PBX.objects.all()
-    default_return_url = "plugins:telephone_plugin:pbx_list"
+    default_return_url = "plugins:phonebox_plugin:pbx_list"
 
 
 class PBXBulkDeleteView(generic.BulkDeleteView):
     queryset = PBX.objects.filter()
     filterset = filters.PbxTelephonyFilterSet
     table = tables.PBXTable
-    default_return_url = "plugins:telephone_plugin:pbx_list"
+    default_return_url = "plugins:phonebox_plugin:pbx_list"
 
 
 class PBXBulkImportView(generic.BulkImportView):

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from telephone_plugin import models
+from phonebox_plugin import models
 from netbox.api import WritableNestedSerializer
 from tenancy.api.nested_serializers import NestedTenantSerializer
 

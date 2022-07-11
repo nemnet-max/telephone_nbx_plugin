@@ -13,12 +13,12 @@ else:
     from netbox.api.views import ModelViewSet
 
 
-class TelephoneNetBoxPluginRootView(APIRootView):
+class PhoneBoxPluginRootView(APIRootView):
     """
-    Telephone_plugin API root view
+    phonebox_plugin API root view
     """
     def get_view_name(self):
-        return 'TelephoneNetBox'
+        return 'PhoneBox'
 
 
 class NumberViewSet(ModelViewSet):

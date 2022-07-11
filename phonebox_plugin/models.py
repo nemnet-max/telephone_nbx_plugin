@@ -35,7 +35,7 @@ class VoiceCircuit(ChangeLoggedModel):
         blank=False
     )
     pbx = models.ForeignKey(
-        to='telephone_plugin.PBX',
+        to='phonebox_plugin.PBX',
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
@@ -102,7 +102,7 @@ class VoiceCircuit(ChangeLoggedModel):
         return str(self.name)
 
     def get_absolute_url(self):
-        return reverse("plugins:telephone_plugin:voice_circuit_view", kwargs={"pk": self.pk})
+        return reverse("plugins:phonebox_plugin:voice_circuit_view", kwargs={"pk": self.pk})
 
 class PBX(ChangeLoggedModel):
     """         ('id', models.BigAutoField(primary_key=True, serialize=False)),
@@ -207,7 +207,7 @@ class PBX(ChangeLoggedModel):
         return str(self.name)
 
     def get_absolute_url(self):
-        return reverse("plugins:telephone_plugin:pbx_view", kwargs={"pk": self.pk})
+        return reverse("plugins:phonebox_plugin:pbx_view", kwargs={"pk": self.pk})
 
 class Number(ChangeLoggedModel):
     """A Number represents a single telephone number of an arbitrary format.
@@ -228,7 +228,7 @@ class Number(ChangeLoggedModel):
     number = models.CharField(max_length=32, validators=[number_validator])
     fio = models.CharField(max_length=200, blank=True)
     pbx = models.ForeignKey(
-        to='telephone_plugin.PBX',
+        to='phonebox_plugin.PBX',
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
@@ -315,7 +315,7 @@ class Number(ChangeLoggedModel):
         return str(self.number)
 
     def get_absolute_url(self):
-        return reverse("plugins:telephone_plugin:number_view", kwargs={"pk": self.pk})
+        return reverse("plugins:phonebox_plugin:number_view", kwargs={"pk": self.pk})
 
     class Meta:
         ordering = ['tenantgroup', 'tenant']

@@ -31,6 +31,7 @@ PBX_ASSIGNMENT_MODELS = Q(
     Q(app_label='dcim', model='interface') |
     Q(app_label='virtualization', model='vminterface')
 )
+
 NUMBER_ASSIGNMENT_MODELS = Q(
     Q(app_label='dcim', model='interface')
 )
